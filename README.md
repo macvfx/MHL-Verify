@@ -110,7 +110,7 @@ derived files and the changes made.
 
 ## Documentation
 
-- [User Guide](USER_GUIDE.md)
+- [User Guide](USER-GUIDE.md)
 - [Changelog](CHANGELOG.md)
 - [Pique Attribution](PIQUE-ATTRIBUTION.md)
 

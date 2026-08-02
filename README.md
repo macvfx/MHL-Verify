@@ -100,19 +100,6 @@ It can:
 
 `MHL Verify` registers as an `Editor`-role handler for `.mhl`, which is required for macOS to offer it as a selectable default in System Settings and in right-click **Open With** menus. It recognises both `io.macadmins.pique.mediahashlist` and `nl.syncfactory.hedge.mac.mhl`, covering files from different originating tools.
 
-## Build
-
-Open `MHLDefaultApps.xcodeproj` and build the `MHLDefaultApps` scheme, or from the command line:
-
-```bash
-xcodebuild -project MHLDefaultApps.xcodeproj -scheme MHLDefaultApps -configuration Debug -derivedDataPath /tmp/MHLDefaultAppsDerivedData CODE_SIGNING_ALLOWED=NO build
-```
-
-As of 2.5.1 the app depends on two sibling local Swift packages, expected next to this repo's folder:
-
-- `../Folder Copy Compare/CopyCore` — the shared MHL engine (private CopyTrust repo)
-- `../GitHubUpdateChecker` — the update checker
-
 ## Acknowledgements
 
 The Quick Look extension and parts of the preview rendering infrastructure

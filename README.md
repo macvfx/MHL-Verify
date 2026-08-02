@@ -105,12 +105,12 @@ It can:
 The Quick Look extension and parts of the preview rendering infrastructure
 are derived from [Pique](https://github.com/macadmins/pique) by
 Declarative IT GmbH, licensed under the Apache License 2.0.
-See [PIQUE_ATTRIBUTION.md](PIQUE_ATTRIBUTION.md) for the full list of
+See [PIQUE_ATTRIBUTION.md](PIQUE-ATTRIBUTION.md) for the full list of
 derived files and the changes made.
 
 ## Documentation
 
-- [User Guide](MHL_VERIFY_USER_GUIDE.md)
-- [Changelog](MHL_VERIFY_CHANGELOG.md)
-- [Pique Attribution](MHL_VERIFY_PIQUE_ATTRIBUTION.md)
+- [User Guide](USER_GUIDE.md)
+- [Changelog](CHANGELOG.md)
+- [Pique Attribution](PIQUE-ATTRIBUTION.md)
 

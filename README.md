@@ -6,12 +6,17 @@ It started as a default-handler utility, but the current app is an MHL reader an
 
 ## Downloads
 
-Releases here carry both parts of MHL Verify:
+**Latest: MHL Verify 2.6.0** — [download](https://github.com/macvfx/MHL-Verify/releases/latest).
+Signed, notarized and universal (Apple silicon and Intel); requires macOS 14 or later.
+
+Releases here carry the two parts of MHL Verify:
 
 - **MHL Verify.app** — the drag-and-drop verifier, with a Quick Look extension
 - **mhl-tool** — the command line equivalent, for scripting and batch verification
 
-Both ship at the same version so a given release is one coherent set.
+They ship together whenever both change, at a matching version. **2.6.0 is the app
+only** — it is a compare change with no CLI equivalent, so `mhl-tool` stays at 2.5.1
+and the 2.5.1 package remains current.
 
 > MHL Verify previously released from the shared `macvfx/MHL` repository alongside
 > CopyTrust, Drop Verify and Folder Copy Compare. Those apps build from one Xcode
@@ -25,7 +30,8 @@ Both ship at the same version so a given release is one coherent set.
 - Open files by dragging onto the Dock icon, dragging into the app, or using the Open button
 - Review a single MHL in the reader
 - **Verify** the files listed in an MHL — re-hash them from disk and compare against the recorded digests (new in 2.5.1)
-- Compare two MHL files side by side
+- Compare two MHL files side by side, **including files on two different volumes** — `Side A` and `Side B` are picked separately (new in 2.6.0)
+- **A verdict on every comparison** (new in 2.6.0): match, timing-differs-only, different-layout, or differs
 - Export the active MHL as JSON, Markdown, or RTF
 - Inspect and change the default macOS app for `.mhl`
 
@@ -74,9 +80,14 @@ This is the better path when you want to review several MHL files in one session
 
 Use the `Compare…` button in the `Reader` tab.
 
-- Select exactly two `.mhl` or XML files
-- The app opens a comparison sheet
-- The comparison view highlights matching and differing summary values
+- Fill `Side A` and `Side B` separately — choose, drop, or pick from recents on each
+- The two files can be on different volumes, which is the normal case: a source
+  manifest on one disk and its copy on the archive
+- The comparison sheet opens with a verdict — **Manifests Match**, **Match — Timing
+  Differs Only**, **Match — Different Layout** (a destination-sorted copy against its
+  pre-sort source), or **Manifests Differ**
+- Below it: summary differences, and a file-level table filtered by `Differences`,
+  `Changed`, `Moved`, `Added/Removed` or `All`
 - Use `Done` to dismiss the comparison view
 
 ### Export
@@ -99,6 +110,26 @@ It can:
 - set a selected app as the default handler
 
 `MHL Verify` registers as an `Editor`-role handler for `.mhl`, which is required for macOS to offer it as a selectable default in System Settings and in right-click **Open With** menus. It recognises both `io.macadmins.pique.mediahashlist` and `nl.syncfactory.hedge.mac.mhl`, covering files from different originating tools.
+
+## The Rest of the Suite
+
+MHL Verify is the standalone MHL reader from **Media Trust Tools**, a set of macOS
+apps for media integrity — copy it, verify it, prove it. The others live in
+[macvfx/MHL](https://github.com/macvfx/MHL), which is also where their releases and
+documentation are:
+
+- **CopyTrust** — multi-source, multi-destination camera-card ingest: queue cards,
+  walk away, come back to verified results, with MHL manifests, receipts, contact
+  sheets and proxy media
+- **Drop Verify** — drop a folder you were handed and get trust artifacts back:
+  verification, MHL, metadata CSV, contact sheet, HTML tree, proxies
+- **Folder Copy Compare** — the original "did the copy work?" check: drop two
+  folders, get an honest answer
+- **mhl-tool** — the command line MHL creator and verifier, released here alongside
+  the app
+
+All of them share **CopyCore**, the same MHL engine MHL Verify uses, so a manifest
+written by one is read the same way by all of them.
 
 ## Acknowledgements
 

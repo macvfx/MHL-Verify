@@ -145,3 +145,8 @@ derived files and the changes made.
 - [Changelog](CHANGELOG.md)
 - [Pique Attribution](PIQUE-ATTRIBUTION.md)
 
+## License
+
+Free to use for your own business or work, including on client jobs. You may not sell,
+redistribute or sublicense the software. The terms are the
+[PolyForm Internal Use License 1.0.0](LICENSE).
